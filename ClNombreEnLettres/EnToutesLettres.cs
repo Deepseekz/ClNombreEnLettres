@@ -135,7 +135,22 @@ namespace CLNombreEnLettres
             unePartieDecimale = Convert.ToInt32(parties[1]);
             unNombreDecimales = parties[1].Length;
         }
-        
+
+        /// <summary>
+        /// découpe un mombre positif en une partie entière, une partie décimale, et indique le nombre de décimales
+        /// </summary>
+        /// <param name="unNombre">decimal, nombre positif</param>
+        /// <param name="unePartieEntiere">out long, partie entière du nombre</param>
+        /// <param name="unePartieDecimale">out int, partie décimale du nombre</param>
+        /// <param name="unNombreDecimales">out int, nombre de chiffres de la partie déci-male du nombre</param>
+        public static void DecouperNombre(decimal unNombre, out long unePartieEntiere, out int unePartieDecimale, out int unNombreDecimales)
+        {
+            string[] parties = Math.Round(unNombre, 2).ToString().Split(',');
+            unePartieEntiere = Convert.ToInt64(parties[0]);
+            unePartieDecimale = Convert.ToInt32(parties[1]);
+            unNombreDecimales = parties[1].Length;
+        }
+
 
     }
 }

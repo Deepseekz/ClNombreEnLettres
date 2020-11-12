@@ -63,10 +63,18 @@ namespace UnitTestProject3
         public void TestMethodDecouperNombre()
         {
             EnToutesLettres.DecouperNombre(4.452, out long partieEntiere, out int partieDecimal, out int nombreDecimal);
-
             Assert.AreEqual(4, partieEntiere);
             Assert.AreEqual(45, partieDecimal);
             Assert.AreEqual(2, nombreDecimal);
+        }
+
+        [TestMethod]
+        public void TestMethodDecouperNombreUnChiffreApresVirgule()
+        {
+            EnToutesLettres.DecouperNombre(1235.2f, out long partieEntiere, out int partieDecimal, out int nombreDecimal);
+            Assert.AreEqual(1235, partieEntiere);
+            Assert.AreEqual(2, partieDecimal);
+            Assert.AreEqual(1, nombreDecimal);
         }
     }
 }
